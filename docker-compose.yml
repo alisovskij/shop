@@ -11,8 +11,8 @@ services:
       - postgres_data:/var/lib/postgresql/data/
 
   web:
-    build: ./backend  # Указываем путь к Dockerfile для бэкенда
-    command: python manage.py runserver 0.0.0.0:8000
+    build: ./backend
+    command: /app/start.sh
     volumes:
       - ./backend:/app
     ports:
