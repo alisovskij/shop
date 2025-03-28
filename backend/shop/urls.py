@@ -1,12 +1,10 @@
 from django.urls import path, include
-from rest_framework.routers import DefaultRouter
 
-from shop.views import ProductViewSet
-
-
-router = DefaultRouter()
-router.register(r'products', ProductViewSet)
+from .views import FilterProducts, BasketListView, BasketOperationsView
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('products/', FilterProducts.as_view()),
+    path('basket/', BasketListView.as_view()),  # GET/POST для списка
+    path('basket/operations/', BasketOperationsView.as_view()),  # POST для добавления
+    path('basket/operations/<int:pk>/', BasketOperationsView.as_view()),  # DELETE для удаления
 ]
