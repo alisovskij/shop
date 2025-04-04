@@ -9,8 +9,13 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+import os
 from datetime import timedelta
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Загружаем переменные из .env
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,14 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z!_$ivbd92)++uwi3y0bmzdjy=_homl%g0b8%&jfl#cgm*+bul'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "fallback-secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =  os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost").split(",")
 
-APPEND_SLASH = True
+APPEND_SLASH = os.getenv("APPEND_SLASH", "False") == "True"
 
 # Application definition
 
@@ -37,11 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_elasticsearch_dsl',
+    'django_elasticsearch_dsl_drf',
     'shop.apps.ShopConfig',
     'user.apps.UserConfig',
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
+    'search.apps.SearchConfig'
 ]
 
 MIDDLEWARE = [
@@ -80,12 +88,12 @@ WSGI_APPLICATION = 'base.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'shop_db',
-        'USER': 'django',
-        'PASSWORD': '1111',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("POSTGRES_DB"),
+        "USER": os.getenv("POSTGRES_USER"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+        "HOST": os.getenv("POSTGRES_HOST", "localhost"),
+        "PORT": os.getenv("POSTGRES_PORT", "5432"),
     }
 }
 
@@ -147,7 +155,6 @@ CORS_ALLOW_HEADERS = [
     'x-requested-with',
 ]
 
-
 STATIC_URL = 'static/'
 
 # Default primary key field type
@@ -166,7 +173,6 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'user.CustomUser'
-
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
@@ -207,3 +213,15 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer",
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
+
+# Elasticsearch configuration
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': os.getenv("ELASTICSEARCH_HOST", "http://elasticsearch:9200"),
+        'timeout': 30,
+        'retry_on_timeout': True,
+        'max_retries': 10,
+    },
+}
+
+ELASTICSEARCH_DSL_SIGNAL_PROCESSOR = 'search.signals.CustomSignalProcessor'
