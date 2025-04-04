@@ -31,7 +31,7 @@ DEBUG =  os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost").split(",")
 
-APPEND_SLASH = os.getenv("APPEND_SLASH", "False") == "True"
+APPEND_SLASH = True
 
 # Application definition
 
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'user.apps.UserConfig',
     'rest_framework',
+    'drf_spectacular',
     'rest_framework_simplejwt',
     'corsheaders',
     'search.apps.SearchConfig'
@@ -163,6 +164,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
+"DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
