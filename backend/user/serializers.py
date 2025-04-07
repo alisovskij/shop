@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
 from django.core.validators import EmailValidator
 from rest_framework import serializers
+from rest_framework.validators import UniqueValidator
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer, PasswordField
 from rest_framework_simplejwt.views import TokenObtainPairView
 
@@ -20,7 +21,18 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ('id', 'username', 'email', 'password', 'first_name', 'last_name', 'is_active', 'is_staff', 'is_superuser', 'date_joined')
+        fields = ('id', 'username', 'email', 'password', 'first_name', 'last_name', 'is_active', 'date_joined')
+        extra_kwargs = {
+            'email': {'validators': [EmailValidator()]},
+            'username': {'validators': []},
+        }
+
+
+    def validate_email(self, value):
+        if CustomUser.objects.filter(email=value).exists():
+            raise serializers.ValidationError("This email is already in use.")
+        return value
+
 
     def create(self, validated_data):
         user = CustomUser.objects.create_user(

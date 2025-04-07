@@ -11,6 +11,7 @@ from .serializers import ProductSerializer, BasketSerializer, AddToBasketSeriali
 
 class FilterProducts(APIView):
     pagination_class = CustomPagination
+    serializer_class = ProductSerializer
 
     def post(self, request, *args, **kwargs):
         queryset = Product.objects.all().order_by('-id')
@@ -23,6 +24,7 @@ class FilterProducts(APIView):
 class BasketListView(APIView):
     permission_classes = (IsAuthenticated,)
     pagination_class = CustomPagination
+    serializer_class = BasketSerializer
 
     def post(self, request):
         queryset = Basket.objects.filter(user=request.user).order_by('-id')
@@ -33,6 +35,7 @@ class BasketListView(APIView):
 
 class BasketOperationsView(APIView):
     permission_classes = (IsAuthenticated,)
+    serializer_class = AddToBasketSerializer
 
     def post(self, request):
         user = request.user
