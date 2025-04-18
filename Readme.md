@@ -73,6 +73,6 @@ Explore the full API at:
 
 ```bash
 git clone https://github.com/alisovskij/shop.git
-cd shop-backend
+cd shop
 docker-compose up --build
 
