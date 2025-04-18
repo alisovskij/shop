@@ -15,10 +15,17 @@ services:
     ports:
       - "5432:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}" ]
       interval: 10s
       timeout: 5s
       retries: 5
+
+  redis:
+    image: redis:7
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
 
   elasticsearch:
     image: elasticsearch:8.12.0
@@ -30,7 +37,7 @@ services:
       - xpack.security.enabled=false
       - bootstrap.memory_lock=true
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=50s || exit 1"]
+      test: [ "CMD-SHELL", "curl -f http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=50s || exit 1" ]
       interval: 10s
       timeout: 60s
       retries: 5
@@ -50,30 +57,59 @@ services:
         echo 'Waiting for PostgreSQL...'; 
         while ! pg_isready -h db -U ${POSTGRES_USER}; do sleep 2; done;
         echo 'PostgreSQL is ready!';
-
+      
         echo 'Waiting for Elasticsearch...'; 
         while ! curl -s -o /dev/null http://elasticsearch:9200/_cluster/health?wait_for_status=yellow; do sleep 2; done;
         echo 'Elasticsearch is ready!';
-        
+      
         python manage.py makemigrations &&
-        python manage.py migrate && 
-        python manage.py runserver 0.0.0.0:8000"
+        python manage.py migrate &&
+        python manage.py collectstatic --noinput &&
+        gunicorn base.wsgi:application --bind 0.0.0.0:8000 --workers 4"
     volumes:
       - ./backend:/backend
-    ports:
-      - "8000:8000"
+      - static_volume:/backend/static
+      - media_volume:/backend/media
+    expose:
+      - "8000"
     depends_on:
       db:
         condition: service_healthy
       elasticsearch:
         condition: service_healthy
-    links:
-      - elasticsearch
     env_file: .env
     environment:
       DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      CELERY_BROKER_URL: redis://redis:6379/0
       ELASTICSEARCH_HOST: ${ELASTICSEARCH_HOST}
+
+  celery:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: celery_worker
+    command: celery -A base worker --loglevel=info
+    volumes:
+      - ./backend:/backend
+    depends_on:
+      - web
+      - redis
+    env_file: .env
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - static_volume:/backend/static
+      - media_volume:/backend/media
+    depends_on:
+      - web
 
 volumes:
   postgres_data:
   elastic_data:
+  static_volume:
+  media_volume:

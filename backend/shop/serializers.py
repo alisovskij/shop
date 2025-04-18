@@ -1,6 +1,12 @@
 from rest_framework import serializers
 
-from .models import Product, Basket
+from .models import Product, Basket, Category
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = '__all__'
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -11,6 +17,10 @@ class ProductSerializer(serializers.ModelSerializer):
             'image': {'required': False},
         }
 
+class PaginationSerializer(serializers.Serializer):
+    size = serializers.IntegerField(required=False)
+    page = serializers.IntegerField(required=False)
+
 
 class BasketSerializer(serializers.ModelSerializer):
     product_name = serializers.CharField(source='product.name')
@@ -19,13 +29,13 @@ class BasketSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Basket
-        fields = ['id', 'product_name', 'quantity', 'product_price', 'product_description']
+        fields = ('id', 'product_name', 'quantity', 'product_price', 'product_description')
 
 
 class AddToBasketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Basket
-        fields = ['product',  'quantity']
+        fields = ('product',  'quantity')
         extra_kwargs = {
             'quantity': {'required': False},
         }

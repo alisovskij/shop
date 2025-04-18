@@ -4,7 +4,7 @@ FROM python:3.12-slim
 RUN apt-get update && apt-get install -y curl postgresql-client
 
 # Создаем и переходим в рабочую директорию
-WORKDIR /app
+WORKDIR /backend
 
 # Копируем зависимости и устанавливаем их
 COPY requirements.txt .
@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Указываем команду по умолчанию (переопределится в docker-compose)
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["gunicorn", "base.wsgi:application", "--bind", "0.0.0.0:8000"]

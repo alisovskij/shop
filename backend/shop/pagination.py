@@ -4,14 +4,14 @@ from rest_framework.response import Response
 
 class CustomPagination(PageNumberPagination):
     page_size = 10
-    page_size_query_param = 'page-size'
+    page_size_query_param = 'page_size'
     max_page_size = 1000
 
 
     def get_page_size(self, request):
-        if request.method == 'POST' and 'size' in request.data:
+        if request.method == 'POST' and 'page_size' in request.data:
             try:
-                page_size = int(request.data['size'])
+                page_size = int(request.data['page_size'])
                 if page_size > self.max_page_size:
                     return self.max_page_size
                 if page_size <= 0:

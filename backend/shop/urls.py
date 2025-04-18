@@ -1,10 +1,12 @@
 from django.urls import path, include
 
-from .views import FilterProducts, BasketListView, BasketOperationsView
+from .views import ProductSearchView, BasketListView, BasketCreateView, BasketDeleteView, ProductListView, CategoryListView
 
 urlpatterns = [
-    path('products/', FilterProducts.as_view()),
-    path('basket/', BasketListView.as_view()),  # GET/POST для списка
-    path('basket/operations/', BasketOperationsView.as_view()),  # POST для добавления
-    path('basket/operations/<int:pk>/', BasketOperationsView.as_view()),  # DELETE для удаления
+    path('categories/', CategoryListView.as_view(), name='category-list'),
+    path('products/', ProductListView.as_view(), name='product-list'),
+    path('products/filters/', ProductSearchView.as_view(), name='product-filters'),
+    path('basket/', BasketListView.as_view(), name='basket-list'),
+    path('basket/add/', BasketCreateView.as_view(), name='basket-add'),
+    path('basket/remove/<int:pk>/', BasketDeleteView.as_view(), name='basket-remove'),
 ]

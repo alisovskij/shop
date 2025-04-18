@@ -14,7 +14,7 @@ admin_site = MyAdminSite(name='myadmin')
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'quantity', 'category', 'created_at')
+    list_display = ('id', 'name', 'price', 'quantity', 'category', 'created_at')
     search_fields = ('name', 'description')
     ordering = ('-created_at',)
     list_editable = ('price', 'quantity')

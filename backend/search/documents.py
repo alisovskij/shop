@@ -26,6 +26,8 @@ class ProductDocument(Document):
         ),
     })
 
+    product_image = fields.KeywordField()
+
     class Index:
         name = 'products'
         settings = {
@@ -54,7 +56,7 @@ class ProductDocument(Document):
 
     class Django:
         model = Product
-        fields = ['id', 'price', 'quantity']
+        fields = ['id', 'price', 'quantity', 'image']
         related_models = [Category]
 
     def get_queryset(self):
