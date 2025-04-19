@@ -1,3 +1,4 @@
+import logging
 from django.shortcuts import get_object_or_404
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.generics import ListAPIView
@@ -14,6 +15,8 @@ from .pagination import CustomPagination
 from .serializers import ProductSerializer, BasketSerializer, AddToBasketSerializer, CategorySerializer
 from .utils.cache import get_cached_list_response
 
+logger = logging.getLogger(__name__)
+
 
 class CategoryListView(ListAPIView):
     queryset = Category.objects.all().order_by('-id')
@@ -24,6 +27,7 @@ class CategoryListView(ListAPIView):
         tags=['products'],
     )
     def get(self, request, *args, **kwargs):
+        logger.info("Запрос на получение всех категорий")
         return get_cached_list_response(
             request,
             prefix="categories_",
@@ -40,6 +44,7 @@ class ProductListView(ListAPIView):
         tags=['products'],
     )
     def get(self, request, *args, **kwargs):
+        logger.info("Запрос на получение всех продуктов")
         return get_cached_list_response(
             request,
             prefix="products_",
@@ -57,6 +62,8 @@ class ProductSearchView(APIView):
         tags=['products']
     )
     def post(self, request, *args, **kwargs):
+        logger.info("Запрос на поиск продуктов с фильтрами")
+
         self.serializer = ProductSearchSerializer(data=request.data)
         self.serializer.is_valid(raise_exception=True)
 
@@ -71,6 +78,9 @@ class ProductSearchView(APIView):
             "page": page,
             "page_size": page_size
         }
+
+        logger.info(f"Поиск с параметрами: search={search}, filters={filters}, page={page}, page_size={page_size}")
+
         return get_cached_list_response(
             request,
             get_response_data=self.get_response_data,
@@ -98,7 +108,10 @@ class ProductSearchView(APIView):
 
         paginator = self.pagination_class()
         paginated = paginator.paginate_queryset(queryset, self.request, view=self)
-        serializer = ProductDocumentSerializer(paginated, many=True) if search is not None else ProductSerializer(paginated, many=True)
+        serializer = ProductDocumentSerializer(paginated, many=True) if search is not None else ProductSerializer(
+            paginated, many=True)
+
+        logger.info(f"Найдено {len(serializer.data)} продуктов по заданным фильтрам")
         return paginator.get_paginated_response(serializer.data)
 
 
@@ -107,6 +120,7 @@ class BasketListView(ListAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
+        logger.info(f"Запрос корзины для пользователя с ID {self.request.user.id}")
         return Basket.objects.filter(user=self.request.user).order_by('-id')
 
     @swagger_auto_schema(
@@ -114,6 +128,7 @@ class BasketListView(ListAPIView):
         tags=['basket']
     )
     def get(self, request, *args, **kwargs):
+        logger.info(f"Просмотр корзины для пользователя с ID {request.user.id}")
         return get_cached_list_response(
             request,
             prefix="basket_",
@@ -130,12 +145,13 @@ class BasketCreateView(APIView):
         operation_description="Добавление ранее не созданного товара или обновление его количества в корзине",
         tags=['basket']
     )
-
     def post(self, request):
         user = request.user
         serializer = AddToBasketSerializer(data=request.data)
 
         if not serializer.is_valid():
+            logger.warning(
+                f"Ошибка валидации данных для добавления товара в корзину для пользователя с ID {user.id}: {serializer.errors}")
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
         product = serializer.validated_data['product']
@@ -155,7 +171,8 @@ class BasketCreateView(APIView):
             basket_item.save()
 
         basket_serializer = BasketSerializer(basket_item)
-
+        logger.info(
+            f"Товар {product.id} успешно добавлен в корзину пользователя с ID {user.id}. Количество: {basket_item.quantity}")
         return Response({
             "message": "Товар успешно добавлен в корзину.",
             "basket_item": basket_serializer.data,
@@ -173,5 +190,6 @@ class BasketDeleteView(APIView):
     def delete(self, request, pk):
         user = request.user
         basket_item = get_object_or_404(Basket, id=pk, user=user)
+        logger.info(f"Удаление товара с ID {pk} из корзины пользователя с ID {user.id}")
         basket_item.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

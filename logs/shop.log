@@ -1,0 +1,1445 @@
+[2025-04-18 13:41:46,300] INFO user.views: Получение списка пользователей
+[2025-04-18 13:42:16,855] INFO user.views: Получение списка пользователей
+[2025-04-18 13:46:49,221] INFO user.views: Получение списка пользователей
+[2025-04-18 13:46:53,631] INFO user.views: Получение списка пользователей
+[2025-04-18 13:47:03,882] INFO user.views: Получение списка пользователей
+[2025-04-18 13:47:07,944] INFO user.views: Получение списка пользователей
+[2025-04-18 13:47:42,779] INFO user.views: Попытка входа: artemlisovsk@mail.ru
+[2025-04-18 13:47:43,239] INFO user.views: Успешный вход: artemlisovsk@mail.ru
+[2025-04-19 08:37:51,291] INFO user.views: Попытка входа: artemlisovsk@mail.ru
+[2025-04-19 08:37:51,966] INFO user.views: Успешный вход: artemlisovsk@mail.ru
+[2025-04-19 08:38:07,087] INFO user.views: Попытка входа: artemlisovsk@mail.ru
+[2025-04-19 08:38:07,524] WARNING django.request: Bad Request: /api/auth/login/
+[2025-04-19 08:39:22,081] INFO user.views: Получение пользователя по ID: 10
+[2025-04-19 08:39:22,108] WARNING django.request: Not Found: /api/user/10/
+[2025-04-19 08:40:56,422] WARNING user.views: Удаление пользователя с ID: 5
+[2025-04-19 08:40:56,443] WARNING django.request: Not Found: /api/user/5/
+[2025-04-19 08:41:09,366] WARNING django.request: Unauthorized: /api/token/refresh/
+[2025-04-19 08:44:28,481] WARNING django.request: Unauthorized: /api/token/refresh/
+[2025-04-19 08:44:49,848] INFO user.views: Попытка входа: artemlisovsk@mail.ru
+[2025-04-19 08:44:50,257] WARNING django.request: Bad Request: /api/auth/login/
+[2025-04-19 08:45:01,633] INFO user.views: Попытка входа: artemlisovsk@mail.ru
+[2025-04-19 08:45:02,007] INFO user.views: Успешный вход: artemlisovsk@mail.ru
+[2025-04-19 08:47:57,832] INFO user.views: Попытка входа: artemlisovsk@mail.ru
+[2025-04-19 08:47:58,351] INFO user.views: Успешный вход: artemlisovsk@mail.ru
+[2025-04-19 08:48:11,935] INFO user.views: Попытка входа: artemlisovsk@mail.ru
+[2025-04-19 08:48:12,310] WARNING django.request: Bad Request: /api/auth/login/
+[2025-04-19 08:48:28,736] INFO user_profile.views: Запрос информации о пользователе сессии для пользователя с ID None
+[2025-04-19 08:48:28,766] ERROR django.request: Internal Server Error: /api/profile/me/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/fields.py", line 104, in get_attribute
+    instance = getattr(instance, attr)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AnonymousUser' object has no attribute 'email'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/user_profile/views.py", line 46, in get
+    "username": serializer.data.get('username'),
+                ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 571, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 525, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `email` on serializer `UserSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `AnonymousUser` instance.
+Original exception text was: 'AnonymousUser' object has no attribute 'email'.
+[2025-04-19 08:53:00,660] INFO user_profile.views: Запрос информации о пользователе сессии для пользователя с ID None
+[2025-04-19 08:53:00,817] ERROR django.request: Internal Server Error: /api/profile/me/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/fields.py", line 104, in get_attribute
+    instance = getattr(instance, attr)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AnonymousUser' object has no attribute 'email'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/user_profile/views.py", line 49, in get
+    "username": serializer.data.get('username'),
+                ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 571, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 525, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `email` on serializer `UserSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `AnonymousUser` instance.
+Original exception text was: 'AnonymousUser' object has no attribute 'email'.
+[2025-04-19 08:54:18,983] INFO user_profile.views: Запрос информации о пользователе сессии для пользователя с ID None
+[2025-04-19 08:54:18,984] WARNING user_profile.views: Попытка получения неавторизованного пользователя
+[2025-04-19 08:54:18,985] WARNING django.request: Unauthorized: /api/profile/me/
+[2025-04-19 08:54:30,809] WARNING django.request: Unauthorized: /api/token/refresh/
+[2025-04-19 08:55:24,817] INFO user_profile.views: Запрос информации о пользователе сессии для пользователя с ID None
+[2025-04-19 08:55:24,818] WARNING user_profile.views: Попытка получения неавторизованного пользователя
+[2025-04-19 08:55:24,819] WARNING django.request: Unauthorized: /api/profile/me/
+[2025-04-19 08:56:16,765] INFO user_profile.views: Запрос информации о пользователе сессии для пользователя с ID None
+[2025-04-19 08:56:16,766] WARNING user_profile.views: Попытка получения неавторизованного пользователя
+[2025-04-19 08:56:16,768] WARNING django.request: Unauthorized: /api/profile/me/
+[2025-04-19 08:56:38,889] INFO user_profile.views: Запрос информации о пользователе сессии для пользователя с ID None
+[2025-04-19 08:56:38,889] WARNING user_profile.views: Попытка получения неавторизованного пользователя
+[2025-04-19 08:56:38,889] WARNING django.request: Unauthorized: /api/profile/me/
+[2025-04-19 08:57:14,204] WARNING django.request: Unauthorized: /api/shop/basket/
+[2025-04-19 08:58:14,896] WARNING django.request: Unauthorized: /api/shop/basket/
+[2025-04-19 08:58:49,902] WARNING django.request: Unauthorized: /api/token/refresh/
+[2025-04-19 08:58:56,273] INFO user.views: Получение списка пользователей
+[2025-04-19 08:59:10,554] INFO user.views: Получение списка пользователей
+[2025-04-19 08:59:10,574] WARNING django.request: Not Found: /api/user/
+[2025-04-19 08:59:40,201] INFO user.views: Получение списка пользователей
+[2025-04-19 08:59:40,228] WARNING django.request: Not Found: /api/user/
+[2025-04-19 09:03:29,550] INFO user.views: Получение списка пользователей
+[2025-04-19 09:03:29,575] WARNING django.request: Not Found: /api/user/
+[2025-04-19 09:14:23,308] INFO user.email_services: Попытка подтвердить email с uidb64 Mw
+[2025-04-19 09:14:23,310] INFO user.email_services: Пользователь найден для uidb64 Mw: user_id 3
+[2025-04-19 09:14:23,323] ERROR django.request: Internal Server Error: /api/verify-email/Mw/coi1nz-5bf750a32df01ea1a1af4229e62d9800/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/user/email_services.py", line 72, in get
+    if default_token_generator.check_token(user, token) and cache.get(f"email_token_{user.id}") == token:
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 258, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2025-04-19 09:14:23,643] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:23,814] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:23,975] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:24,124] WARNING django.request: Bad Request: /api/auth/login/
+[2025-04-19 09:14:24,282] INFO user.views: Попытка входа: invalid_email@example.com
+[2025-04-19 09:14:24,284] WARNING django.request: Bad Request: /api/auth/login/
+[2025-04-19 09:14:24,443] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:24,593] WARNING django.request: Bad Request: /api/auth/login/
+[2025-04-19 09:14:24,753] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:24,909] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:24,912] INFO user.views: Пользователь test@example.com выходит из системы
+[2025-04-19 09:14:24,915] INFO user.views: Пользователь test@example.com успешно вышел
+[2025-04-19 09:14:25,072] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:25,222] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:25,225] WARNING django.request: Unauthorized: /api/auth/logout/
+[2025-04-19 09:14:25,390] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:25,541] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:25,543] INFO user.views: Пользователь test@example.com выходит из системы
+[2025-04-19 09:14:25,543] WARNING django.request: Bad Request: /api/auth/logout/
+[2025-04-19 09:14:25,710] ERROR django.request: Internal Server Error: /api/auth/reset-password/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 81, in set
+    return self.client.set(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 185, in set
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/user/views.py", line 136, in post
+    cache.set(cache_key, token, timeout=3600)
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 175, in set
+    return bool(client.set(nkey, nvalue, nx=nx, px=timeout, xx=xx))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 2335, in set
+    return self.execute_command("SET", *pieces, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2025-04-19 09:14:25,864] WARNING user.views: Запрос восстановления пароля без email
+[2025-04-19 09:14:25,865] WARNING django.request: Bad Request: /api/auth/reset-password/
+[2025-04-19 09:14:25,868] WARNING user.views: Пользователь не найден при попытке восстановления пароля: unknown@example.com
+[2025-04-19 09:14:25,869] WARNING django.request: Bad Request: /api/auth/reset-password/
+[2025-04-19 09:14:26,111] INFO user.views: Запрос на подтверждение смены пароля
+[2025-04-19 09:14:26,112] ERROR user.views: Ошибка при декодировании или поиске пользователя: 'utf-8' codec can't decode byte 0x8a in position 0: invalid start byte
+[2025-04-19 09:14:26,112] WARNING django.request: Bad Request: /api/auth/reset-password/invalid/token/
+[2025-04-19 09:14:26,272] INFO user.views: Запрос на подтверждение смены пароля
+[2025-04-19 09:14:26,273] WARNING user.views: Невалидный или истёкший токен для пользователя test@example.com
+[2025-04-19 09:14:26,273] WARNING django.request: Bad Request: /api/auth/reset-password/MTM/badtoken/
+[2025-04-19 09:14:26,435] INFO user.views: Запрос на подтверждение смены пароля
+[2025-04-19 09:14:26,437] ERROR django.request: Internal Server Error: /api/auth/reset-password/MTQ/coi1o2-b04e2d7b4276a2ee3257f8f6ef86197b/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/user/views.py", line 166, in post
+    if not default_token_generator.check_token(user, token) or cache.get(f"reset_password_{user.id}") != token:
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 258, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2025-04-19 09:14:27,013] INFO user.views: Успешная регистрация пользователя: test@example.com
+[2025-04-19 09:14:27,178] WARNING django.request: Bad Request: /api/auth/register/
+[2025-04-19 09:14:27,188] WARNING django.request: Bad Request: /api/auth/register/
+[2025-04-19 09:14:27,193] WARNING django.request: Bad Request: /api/auth/register/
+[2025-04-19 09:14:27,197] WARNING django.request: Bad Request: /api/auth/register/
+[2025-04-19 09:14:27,201] WARNING django.request: Bad Request: /api/auth/register/
+[2025-04-19 09:14:27,209] WARNING django.request: Bad Request: /api/auth/register/
+[2025-04-19 09:14:27,380] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:27,530] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:27,652] INFO shop.views: Просмотр корзины для пользователя с ID 18
+[2025-04-19 09:14:27,653] INFO shop.utils.cache: Сформирован ключ кеша: basket_00477aae99967c299f6df11039726b2d
+[2025-04-19 09:14:27,653] ERROR django.request: Internal Server Error: /api/shop/basket/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/views.py", line 132, in get
+    return get_cached_list_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/utils/cache.py", line 27, in get_cached_list_response
+    cached_data = cache.get(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 258, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2025-04-19 09:14:28,028] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:28,179] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:28,180] WARNING django.request: Unauthorized: /api/shop/basket/
+[2025-04-19 09:14:28,342] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:28,496] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:28,499] INFO shop.signals: Изменения или удаление категории с ID 1. Очистка кеша категорий.
+[2025-04-19 09:14:28,804] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:28,960] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:28,962] WARNING django.request: Unauthorized: /api/shop/basket/add/
+[2025-04-19 09:14:29,120] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:29,270] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:29,273] WARNING shop.views: Ошибка валидации данных для добавления товара в корзину для пользователя с ID 22: {'product': [ErrorDetail(string='Invalid pk "1" - object does not exist.', code='does_not_exist')]}
+[2025-04-19 09:14:29,273] WARNING django.request: Bad Request: /api/shop/basket/add/
+[2025-04-19 09:14:29,436] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:29,586] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:29,589] WARNING shop.views: Ошибка валидации данных для добавления товара в корзину для пользователя с ID 23: {'product': [ErrorDetail(string='Invalid pk "0" - object does not exist.', code='does_not_exist')]}
+[2025-04-19 09:14:29,589] WARNING django.request: Bad Request: /api/shop/basket/add/
+[2025-04-19 09:14:29,747] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:29,903] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:29,906] WARNING shop.views: Ошибка валидации данных для добавления товара в корзину для пользователя с ID 24: {'product': [ErrorDetail(string='Invalid pk "0" - object does not exist.', code='does_not_exist')]}
+[2025-04-19 09:14:29,906] WARNING django.request: Bad Request: /api/shop/basket/add/
+[2025-04-19 09:14:30,065] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:30,216] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:30,219] WARNING shop.views: Ошибка валидации данных для добавления товара в корзину для пользователя с ID 25: {'product': [ErrorDetail(string='Invalid pk "-1" - object does not exist.', code='does_not_exist')], 'quantity': [ErrorDetail(string='Ensure this value is greater than or equal to 0.', code='min_value')]}
+[2025-04-19 09:14:30,219] WARNING django.request: Bad Request: /api/shop/basket/add/
+[2025-04-19 09:14:30,384] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:30,533] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:30,534] INFO shop.signals: Изменения или удаление категории с ID 2. Очистка кеша категорий.
+[2025-04-19 09:14:30,842] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:30,995] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:30,998] WARNING django.request: Not Found: /api/shop/basket/remove/1/
+[2025-04-19 09:14:31,000] WARNING django.request: Unauthorized: /api/shop/basket/remove/1/
+[2025-04-19 09:14:31,158] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:31,308] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:31,310] INFO user_profile.views: Попытка смены пароля для пользователя с ID 28
+[2025-04-19 09:14:31,619] INFO user_profile.views: Пароль успешно изменён для пользователя с ID 28
+[2025-04-19 09:14:31,933] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:32,087] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:32,089] INFO user_profile.views: Попытка смены пароля для пользователя с ID 29
+[2025-04-19 09:14:32,238] WARNING user_profile.views: Ошибка валидации данных для пользователя с ID 29: {'old_password': [ErrorDetail(string='Неверный текущий пароль', code='invalid')]}
+[2025-04-19 09:14:32,239] WARNING django.request: Bad Request: /api/profile/change-password/
+[2025-04-19 09:14:32,405] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:32,555] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:32,557] WARNING django.request: Unauthorized: /api/profile/change-password/
+[2025-04-19 09:14:32,716] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:32,868] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:32,871] INFO user_profile.views: Попытка смены пароля для пользователя с ID 31
+[2025-04-19 09:14:33,021] WARNING user_profile.views: Ошибка валидации данных для пользователя с ID 31: {'new_password': [ErrorDetail(string='This password is too short. It must contain at least 8 characters.', code='password_too_short'), ErrorDetail(string='This password is too common.', code='password_too_common'), ErrorDetail(string='This password is entirely numeric.', code='password_entirely_numeric')]}
+[2025-04-19 09:14:33,021] WARNING django.request: Bad Request: /api/profile/change-password/
+[2025-04-19 09:14:33,180] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:33,330] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:33,332] INFO user_profile.views: Попытка смены пароля для пользователя с ID 32
+[2025-04-19 09:14:33,486] WARNING user_profile.views: Ошибка валидации данных для пользователя с ID 32: {'new_password': [ErrorDetail(string='This password is too common.', code='password_too_common'), ErrorDetail(string='This password is entirely numeric.', code='password_entirely_numeric')]}
+[2025-04-19 09:14:33,487] WARNING django.request: Bad Request: /api/profile/change-password/
+[2025-04-19 09:14:33,646] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:33,795] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:33,797] INFO user_profile.views: Попытка смены пароля для пользователя с ID 33
+[2025-04-19 09:14:33,951] WARNING user_profile.views: Ошибка валидации данных для пользователя с ID 33: {'new_password': [ErrorDetail(string='This password is too short. It must contain at least 8 characters.', code='password_too_short'), ErrorDetail(string='This password is too common.', code='password_too_common')]}
+[2025-04-19 09:14:33,952] WARNING django.request: Bad Request: /api/profile/change-password/
+[2025-04-19 09:14:34,124] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:34,291] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:34,295] INFO user_profile.views: Попытка смены пароля для пользователя с ID 34
+[2025-04-19 09:14:34,459] WARNING user_profile.views: Ошибка валидации данных для пользователя с ID 34: {'new_password': [ErrorDetail(string='This password is too common.', code='password_too_common')]}
+[2025-04-19 09:14:34,460] WARNING django.request: Bad Request: /api/profile/change-password/
+[2025-04-19 09:14:34,631] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:34,790] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:34,793] INFO user_profile.views: Запрос информации о пользователе сессии для пользователя с ID 35
+[2025-04-19 09:14:34,794] INFO user_profile.views: Информация о пользователе с ID 35 успешно получена
+[2025-04-19 09:14:34,956] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:35,108] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:35,110] WARNING django.request: Unauthorized: /api/profile/me/
+[2025-04-19 09:14:35,115] INFO shop.signals: Изменения или удаление категории с ID 3. Очистка кеша категорий.
+[2025-04-19 09:14:35,308] INFO shop.signals: Изменения или удаление категории с ID 4. Очистка кеша категорий.
+[2025-04-19 09:14:35,496] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:14:35,497] INFO shop.views: Поиск с параметрами: search=laptop, filters={'min_price': 1000, 'max_price': 3000, 'category': 1}, page=1, page_size=10
+[2025-04-19 09:14:35,497] INFO shop.utils.cache: Сформирован ключ кеша: products_search_5bd592b289d19d541a914daf7650b780
+[2025-04-19 09:14:35,497] ERROR django.request: Internal Server Error: /api/shop/products/filters/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/views.py", line 84, in post
+    return get_cached_list_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/utils/cache.py", line 27, in get_cached_list_response
+    cached_data = cache.get(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 258, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2025-04-19 09:14:35,669] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:14:35,669] INFO shop.views: Поиск с параметрами: search=shirt, filters={'min_price': 10, 'max_price': 100, 'category': 2}, page=1, page_size=20
+[2025-04-19 09:14:35,669] INFO shop.utils.cache: Сформирован ключ кеша: products_search_7bd415631b68454ad8d99e0a7fd91675
+[2025-04-19 09:14:35,670] ERROR django.request: Internal Server Error: /api/shop/products/filters/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/views.py", line 84, in post
+    return get_cached_list_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/utils/cache.py", line 27, in get_cached_list_response
+    cached_data = cache.get(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 258, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2025-04-19 09:14:35,845] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:14:35,845] INFO shop.views: Поиск с параметрами: search=book, filters={'min_price': 0, 'max_price': 50, 'category': 5}, page=1, page_size=5
+[2025-04-19 09:14:35,845] INFO shop.utils.cache: Сформирован ключ кеша: products_search_c1ca3b8dcd5d21ce1ea6666a1a0af7a9
+[2025-04-19 09:14:35,846] ERROR django.request: Internal Server Error: /api/shop/products/filters/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/views.py", line 84, in post
+    return get_cached_list_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/utils/cache.py", line 27, in get_cached_list_response
+    cached_data = cache.get(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 258, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2025-04-19 09:14:36,019] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:14:36,020] INFO shop.views: Поиск с параметрами: search=, filters={'min_price': 0, 'max_price': 0}, page=1, page_size=10
+[2025-04-19 09:14:36,020] INFO shop.utils.cache: Сформирован ключ кеша: products_search_3c39a522a23da0d4cc15d7d77b551645
+[2025-04-19 09:14:36,020] ERROR django.request: Internal Server Error: /api/shop/products/filters/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/views.py", line 84, in post
+    return get_cached_list_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/utils/cache.py", line 27, in get_cached_list_response
+    cached_data = cache.get(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 258, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2025-04-19 09:14:36,198] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:14:36,198] INFO shop.views: Поиск с параметрами: search=gaming, filters={'min_price': 200, 'max_price': 1500, 'category': 87}, page=1, page_size=15
+[2025-04-19 09:14:36,198] INFO shop.utils.cache: Сформирован ключ кеша: products_search_84f733e7a29c9601f995d8487c8a7ae5
+[2025-04-19 09:14:36,200] ERROR django.request: Internal Server Error: /api/shop/products/filters/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/views.py", line 84, in post
+    return get_cached_list_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/utils/cache.py", line 27, in get_cached_list_response
+    cached_data = cache.get(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 258, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2025-04-19 09:14:36,370] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:14:36,371] INFO shop.views: Поиск с параметрами: search=headphones, filters={'min_price': 50, 'max_price': 500, 'category': 2}, page=1, page_size=12
+[2025-04-19 09:14:36,371] INFO shop.utils.cache: Сформирован ключ кеша: products_search_a8a364d33e2c18ef6be0a7c7ccc521a7
+[2025-04-19 09:14:36,371] ERROR django.request: Internal Server Error: /api/shop/products/filters/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/views.py", line 84, in post
+    return get_cached_list_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/utils/cache.py", line 27, in get_cached_list_response
+    cached_data = cache.get(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 258, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2025-04-19 09:14:36,518] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:14:36,518] INFO shop.views: Поиск с параметрами: search=shoes, filters={'min_price': 30, 'max_price': 300, 'category': 6}, page=1, page_size=10
+[2025-04-19 09:14:36,518] INFO shop.utils.cache: Сформирован ключ кеша: products_search_d686a04b5d37198db860d5dadcef5c29
+[2025-04-19 09:14:36,519] ERROR django.request: Internal Server Error: /api/shop/products/filters/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/views.py", line 84, in post
+    return get_cached_list_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/utils/cache.py", line 27, in get_cached_list_response
+    cached_data = cache.get(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 258, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2025-04-19 09:14:36,868] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:14:36,869] INFO shop.views: Поиск с параметрами: search=t-shirt, filters={'min_price': 5, 'max_price': 50, 'category': 4}, page=1, page_size=25
+[2025-04-19 09:14:36,869] INFO shop.utils.cache: Сформирован ключ кеша: products_search_270738e61e55dcc7e51a97ee92b61f4c
+[2025-04-19 09:14:36,869] ERROR django.request: Internal Server Error: /api/shop/products/filters/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/views.py", line 84, in post
+    return get_cached_list_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/utils/cache.py", line 27, in get_cached_list_response
+    cached_data = cache.get(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 258, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2025-04-19 09:14:37,000] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:14:37,001] INFO shop.views: Поиск с параметрами: search=chair, filters={'min_price': 100, 'max_price': 1000, 'category': 3}, page=1, page_size=10
+[2025-04-19 09:14:37,001] INFO shop.utils.cache: Сформирован ключ кеша: products_search_ea2bc50c4d2c2e0ecccc74f73ac3cdaf
+[2025-04-19 09:14:37,001] ERROR django.request: Internal Server Error: /api/shop/products/filters/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/views.py", line 84, in post
+    return get_cached_list_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/utils/cache.py", line 27, in get_cached_list_response
+    cached_data = cache.get(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 258, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2025-04-19 09:14:37,132] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:14:37,132] INFO shop.views: Поиск с параметрами: search=, filters={'min_price': 0, 'max_price': 10000}, page=1, page_size=100
+[2025-04-19 09:14:37,133] INFO shop.utils.cache: Сформирован ключ кеша: products_search_09b47c3b82178ced1401b94cf18b444e
+[2025-04-19 09:14:37,133] ERROR django.request: Internal Server Error: /api/shop/products/filters/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/views.py", line 84, in post
+    return get_cached_list_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backend/shop/utils/cache.py", line 27, in get_cached_list_response
+    cached_data = cache.get(cache_key)
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django_redis/cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "/usr/local/lib/python3.12/site-packages/django_redis/client/default.py", line 258, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2025-04-19 09:14:37,428] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:37,585] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:37,597] WARNING django.request: Unauthorized: /api/token/refresh/
+[2025-04-19 09:14:37,600] WARNING django.request: Bad Request: /api/token/refresh/
+[2025-04-19 09:14:37,757] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:37,908] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:14:37,914] WARNING django.request: Unauthorized: /api/token/verify/
+[2025-04-19 09:14:38,076] INFO user.views: Получение списка пользователей
+[2025-04-19 09:14:38,236] WARNING user.views: Удаление пользователя с ID: 40
+[2025-04-19 09:14:38,402] INFO user.views: Получение пользователя по ID: 41
+[2025-04-19 09:14:38,406] INFO user.views: Попытка входа: 
+[2025-04-19 09:14:38,406] WARNING django.request: Bad Request: /api/auth/login/
+[2025-04-19 09:14:38,408] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:14:38,408] WARNING django.request: Bad Request: /api/auth/login/
+[2025-04-19 09:14:38,409] INFO user.views: Попытка входа: 
+[2025-04-19 09:14:38,409] WARNING django.request: Bad Request: /api/auth/login/
+[2025-04-19 09:17:47,270] INFO user.email_services: Попытка подтвердить email с uidb64 MQ
+[2025-04-19 09:17:47,272] INFO user.email_services: Пользователь найден для uidb64 MQ: user_id 1
+[2025-04-19 09:17:47,272] INFO user.email_services: Токен действителен для пользователя с ID 1. Подтверждаем email.
+[2025-04-19 09:17:47,273] INFO user.email_services: Email успешно подтверждён для пользователя с ID 1
+[2025-04-19 09:17:47,440] INFO user.email_services: Попытка подтвердить email с uidb64 Mg
+[2025-04-19 09:17:47,441] INFO user.email_services: Пользователь найден для uidb64 Mg: user_id 2
+[2025-04-19 09:17:47,441] WARNING user.email_services: Недействительный или просроченный токен для пользователя с ID 2
+[2025-04-19 09:17:47,441] WARNING django.request: Bad Request: /api/verify-email/Mg/invalid-token/
+[2025-04-19 09:17:47,609] INFO user.email_services: Попытка подтвердить email с uidb64 Mw
+[2025-04-19 09:17:47,610] INFO user.email_services: Пользователь найден для uidb64 Mw: user_id 3
+[2025-04-19 09:17:47,610] WARNING user.email_services: Недействительный или просроченный токен для пользователя с ID 3
+[2025-04-19 09:17:47,610] WARNING django.request: Bad Request: /api/verify-email/Mw/coi1tn-09a4cb44d54240c771295e7708b76c0f/
+[2025-04-19 09:17:47,784] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:47,958] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:48,124] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:48,288] WARNING django.request: Bad Request: /api/auth/login/
+[2025-04-19 09:17:48,453] INFO user.views: Попытка входа: invalid_email@example.com
+[2025-04-19 09:17:48,455] WARNING django.request: Bad Request: /api/auth/login/
+[2025-04-19 09:17:48,621] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:48,783] WARNING django.request: Bad Request: /api/auth/login/
+[2025-04-19 09:17:48,951] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:49,110] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:49,112] INFO user.views: Пользователь test@example.com выходит из системы
+[2025-04-19 09:17:49,116] INFO user.views: Пользователь test@example.com успешно вышел
+[2025-04-19 09:17:49,291] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:49,473] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:49,475] WARNING django.request: Unauthorized: /api/auth/logout/
+[2025-04-19 09:17:49,644] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:49,800] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:49,802] INFO user.views: Пользователь test@example.com выходит из системы
+[2025-04-19 09:17:49,802] WARNING django.request: Bad Request: /api/auth/logout/
+[2025-04-19 09:17:49,981] INFO user.views: Письмо для восстановления пароля отправлено на: test@example.com
+[2025-04-19 09:17:49,984] WARNING user.views: Запрос восстановления пароля без email
+[2025-04-19 09:17:49,984] WARNING django.request: Bad Request: /api/auth/reset-password/
+[2025-04-19 09:17:49,987] WARNING user.views: Пользователь не найден при попытке восстановления пароля: unknown@example.com
+[2025-04-19 09:17:49,987] WARNING django.request: Bad Request: /api/auth/reset-password/
+[2025-04-19 09:17:50,166] INFO user.views: Запрос на подтверждение смены пароля
+[2025-04-19 09:17:50,349] INFO user.views: Пароль успешно изменён для пользователя: test@example.com
+[2025-04-19 09:17:50,528] INFO user.views: Запрос на подтверждение смены пароля
+[2025-04-19 09:17:50,528] ERROR user.views: Ошибка при декодировании или поиске пользователя: 'utf-8' codec can't decode byte 0x8a in position 0: invalid start byte
+[2025-04-19 09:17:50,529] WARNING django.request: Bad Request: /api/auth/reset-password/invalid/token/
+[2025-04-19 09:17:50,697] INFO user.views: Запрос на подтверждение смены пароля
+[2025-04-19 09:17:50,698] WARNING user.views: Невалидный или истёкший токен для пользователя test@example.com
+[2025-04-19 09:17:50,699] WARNING django.request: Bad Request: /api/auth/reset-password/MTM/badtoken/
+[2025-04-19 09:17:50,871] INFO user.views: Запрос на подтверждение смены пароля
+[2025-04-19 09:17:50,874] WARNING user.views: Невалидный или истёкший токен для пользователя test@example.com
+[2025-04-19 09:17:50,874] WARNING django.request: Bad Request: /api/auth/reset-password/MTQ/coi1tq-026a57c79a74ab5c52e5a5f28a216032/
+[2025-04-19 09:17:51,048] INFO user.views: Запрос на подтверждение смены пароля
+[2025-04-19 09:17:51,049] WARNING django.request: Bad Request: /api/auth/reset-password/MTU/coi1tr-266f19bb145772c0a64f6be3a4e9e1ee/
+[2025-04-19 09:17:51,246] INFO user.views: Успешная регистрация пользователя: test@example.com
+[2025-04-19 09:17:51,419] WARNING django.request: Bad Request: /api/auth/register/
+[2025-04-19 09:17:51,425] WARNING django.request: Bad Request: /api/auth/register/
+[2025-04-19 09:17:51,429] WARNING django.request: Bad Request: /api/auth/register/
+[2025-04-19 09:17:51,434] WARNING django.request: Bad Request: /api/auth/register/
+[2025-04-19 09:17:51,439] WARNING django.request: Bad Request: /api/auth/register/
+[2025-04-19 09:17:51,442] WARNING django.request: Bad Request: /api/auth/register/
+[2025-04-19 09:17:51,608] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:51,772] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:51,775] INFO shop.views: Просмотр корзины для пользователя с ID 18
+[2025-04-19 09:17:51,775] INFO shop.utils.cache: Сформирован ключ кеша: basket_00477aae99967c299f6df11039726b2d
+[2025-04-19 09:17:51,775] INFO shop.utils.cache: Кеш для ключа basket_00477aae99967c299f6df11039726b2d не найден. Получение данных с использованием функции get_response_data.
+[2025-04-19 09:17:51,775] INFO shop.views: Запрос корзины для пользователя с ID 18
+[2025-04-19 09:17:51,777] INFO shop.utils.cache: Данные успешно сохранены в кеш с ключом basket_00477aae99967c299f6df11039726b2d.
+[2025-04-19 09:17:51,975] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:52,133] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:52,135] WARNING django.request: Unauthorized: /api/shop/basket/
+[2025-04-19 09:17:52,307] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:52,466] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:52,469] INFO shop.signals: Изменения или удаление категории с ID 1. Очистка кеша категорий.
+[2025-04-19 09:17:52,577] INFO shop.signals: Изменения или удаление продукта с ID 1. Очистка кеша продуктов.
+[2025-04-19 09:17:52,585] INFO shop.signals: Изменения или удаление товара из корзины для пользователя с ID 20. Очистка кеша корзины.
+[2025-04-19 09:17:52,585] INFO shop.signals: Кеш с ключом b':1:basket_00477aae99967c299f6df11039726b2d' для корзины был удалён.
+[2025-04-19 09:17:52,586] INFO shop.views: Товар 1 успешно добавлен в корзину пользователя с ID 20. Количество: 1
+[2025-04-19 09:17:52,766] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:52,927] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:52,928] WARNING django.request: Unauthorized: /api/shop/basket/add/
+[2025-04-19 09:17:53,126] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:53,283] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:53,286] WARNING shop.views: Ошибка валидации данных для добавления товара в корзину для пользователя с ID 22: {'product': [ErrorDetail(string='Invalid pk "1" - object does not exist.', code='does_not_exist')]}
+[2025-04-19 09:17:53,286] WARNING django.request: Bad Request: /api/shop/basket/add/
+[2025-04-19 09:17:53,480] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:53,642] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:53,645] WARNING shop.views: Ошибка валидации данных для добавления товара в корзину для пользователя с ID 23: {'product': [ErrorDetail(string='Invalid pk "0" - object does not exist.', code='does_not_exist')]}
+[2025-04-19 09:17:53,646] WARNING django.request: Bad Request: /api/shop/basket/add/
+[2025-04-19 09:17:53,837] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:53,998] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:54,001] WARNING shop.views: Ошибка валидации данных для добавления товара в корзину для пользователя с ID 24: {'product': [ErrorDetail(string='Invalid pk "0" - object does not exist.', code='does_not_exist')]}
+[2025-04-19 09:17:54,001] WARNING django.request: Bad Request: /api/shop/basket/add/
+[2025-04-19 09:17:54,192] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:54,349] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:54,351] WARNING shop.views: Ошибка валидации данных для добавления товара в корзину для пользователя с ID 25: {'product': [ErrorDetail(string='Invalid pk "-1" - object does not exist.', code='does_not_exist')], 'quantity': [ErrorDetail(string='Ensure this value is greater than or equal to 0.', code='min_value')]}
+[2025-04-19 09:17:54,351] WARNING django.request: Bad Request: /api/shop/basket/add/
+[2025-04-19 09:17:54,550] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:54,708] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:54,709] INFO shop.signals: Изменения или удаление категории с ID 2. Очистка кеша категорий.
+[2025-04-19 09:17:54,741] INFO shop.signals: Изменения или удаление продукта с ID 2. Очистка кеша продуктов.
+[2025-04-19 09:17:54,743] INFO shop.signals: Изменения или удаление товара из корзины для пользователя с ID 26. Очистка кеша корзины.
+[2025-04-19 09:17:54,746] INFO shop.views: Удаление товара с ID 2 из корзины пользователя с ID 26
+[2025-04-19 09:17:54,747] INFO shop.signals: Изменения или удаление товара из корзины для пользователя с ID 26. Очистка кеша корзины.
+[2025-04-19 09:17:54,939] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:55,103] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:55,106] WARNING django.request: Not Found: /api/shop/basket/remove/1/
+[2025-04-19 09:17:55,109] WARNING django.request: Unauthorized: /api/shop/basket/remove/1/
+[2025-04-19 09:17:55,302] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:55,460] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:55,463] INFO user_profile.views: Попытка смены пароля для пользователя с ID 28
+[2025-04-19 09:17:55,787] INFO user_profile.views: Пароль успешно изменён для пользователя с ID 28
+[2025-04-19 09:17:56,113] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:56,277] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:56,279] INFO user_profile.views: Попытка смены пароля для пользователя с ID 29
+[2025-04-19 09:17:56,436] WARNING user_profile.views: Ошибка валидации данных для пользователя с ID 29: {'old_password': [ErrorDetail(string='Неверный текущий пароль', code='invalid')]}
+[2025-04-19 09:17:56,436] WARNING django.request: Bad Request: /api/profile/change-password/
+[2025-04-19 09:17:56,610] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:56,768] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:56,770] WARNING django.request: Unauthorized: /api/profile/change-password/
+[2025-04-19 09:17:56,936] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:57,100] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:57,102] INFO user_profile.views: Попытка смены пароля для пользователя с ID 31
+[2025-04-19 09:17:57,258] WARNING user_profile.views: Ошибка валидации данных для пользователя с ID 31: {'new_password': [ErrorDetail(string='This password is too short. It must contain at least 8 characters.', code='password_too_short'), ErrorDetail(string='This password is too common.', code='password_too_common'), ErrorDetail(string='This password is entirely numeric.', code='password_entirely_numeric')]}
+[2025-04-19 09:17:57,258] WARNING django.request: Bad Request: /api/profile/change-password/
+[2025-04-19 09:17:57,426] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:57,591] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:57,594] INFO user_profile.views: Попытка смены пароля для пользователя с ID 32
+[2025-04-19 09:17:57,748] WARNING user_profile.views: Ошибка валидации данных для пользователя с ID 32: {'new_password': [ErrorDetail(string='This password is too common.', code='password_too_common'), ErrorDetail(string='This password is entirely numeric.', code='password_entirely_numeric')]}
+[2025-04-19 09:17:57,748] WARNING django.request: Bad Request: /api/profile/change-password/
+[2025-04-19 09:17:57,913] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:58,078] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:58,080] INFO user_profile.views: Попытка смены пароля для пользователя с ID 33
+[2025-04-19 09:17:58,236] WARNING user_profile.views: Ошибка валидации данных для пользователя с ID 33: {'new_password': [ErrorDetail(string='This password is too short. It must contain at least 8 characters.', code='password_too_short'), ErrorDetail(string='This password is too common.', code='password_too_common')]}
+[2025-04-19 09:17:58,236] WARNING django.request: Bad Request: /api/profile/change-password/
+[2025-04-19 09:17:58,405] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:58,572] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:58,575] INFO user_profile.views: Попытка смены пароля для пользователя с ID 34
+[2025-04-19 09:17:58,736] WARNING user_profile.views: Ошибка валидации данных для пользователя с ID 34: {'new_password': [ErrorDetail(string='This password is too common.', code='password_too_common')]}
+[2025-04-19 09:17:58,736] WARNING django.request: Bad Request: /api/profile/change-password/
+[2025-04-19 09:17:58,909] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:59,081] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:59,084] INFO user_profile.views: Запрос информации о пользователе сессии для пользователя с ID 35
+[2025-04-19 09:17:59,084] INFO user_profile.views: Информация о пользователе с ID 35 успешно получена
+[2025-04-19 09:17:59,254] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:17:59,414] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:17:59,415] WARNING django.request: Unauthorized: /api/profile/me/
+[2025-04-19 09:17:59,419] INFO shop.signals: Изменения или удаление категории с ID 3. Очистка кеша категорий.
+[2025-04-19 09:17:59,453] INFO shop.signals: Изменения или удаление продукта с ID 3. Очистка кеша продуктов.
+[2025-04-19 09:17:59,455] INFO shop.views: Запрос на получение всех категорий
+[2025-04-19 09:17:59,455] INFO shop.utils.cache: Сформирован ключ кеша: categories_6f5512aa097a23f37a5f0c6a53473657
+[2025-04-19 09:17:59,456] INFO shop.utils.cache: Кеш для ключа categories_6f5512aa097a23f37a5f0c6a53473657 не найден. Получение данных с использованием функции get_response_data.
+[2025-04-19 09:17:59,458] INFO shop.utils.cache: Данные успешно сохранены в кеш с ключом categories_6f5512aa097a23f37a5f0c6a53473657.
+[2025-04-19 09:17:59,464] INFO shop.signals: Изменения или удаление категории с ID 4. Очистка кеша категорий.
+[2025-04-19 09:17:59,464] INFO shop.signals: Кеш с ключом b':1:categories_6f5512aa097a23f37a5f0c6a53473657' для категорий был удалён.
+[2025-04-19 09:17:59,499] INFO shop.signals: Изменения или удаление продукта с ID 4. Очистка кеша продуктов.
+[2025-04-19 09:17:59,502] INFO shop.views: Запрос на получение всех продуктов
+[2025-04-19 09:17:59,502] INFO shop.utils.cache: Сформирован ключ кеша: products_3c088e4b1155ed443e0e89f4df69d19b
+[2025-04-19 09:17:59,502] INFO shop.utils.cache: Кеш для ключа products_3c088e4b1155ed443e0e89f4df69d19b не найден. Получение данных с использованием функции get_response_data.
+[2025-04-19 09:17:59,505] INFO shop.utils.cache: Данные успешно сохранены в кеш с ключом products_3c088e4b1155ed443e0e89f4df69d19b.
+[2025-04-19 09:17:59,509] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:17:59,509] INFO shop.views: Поиск с параметрами: search=laptop, filters={'min_price': 1000, 'max_price': 3000, 'category': 1}, page=1, page_size=10
+[2025-04-19 09:17:59,509] INFO shop.utils.cache: Сформирован ключ кеша: products_search_5bd592b289d19d541a914daf7650b780
+[2025-04-19 09:17:59,510] INFO shop.utils.cache: Кеш для ключа products_search_5bd592b289d19d541a914daf7650b780 не найден. Получение данных с использованием функции get_response_data.
+[2025-04-19 09:17:59,624] INFO shop.views: Найдено 0 продуктов по заданным фильтрам
+[2025-04-19 09:17:59,625] INFO shop.utils.cache: Данные успешно сохранены в кеш с ключом products_search_5bd592b289d19d541a914daf7650b780.
+[2025-04-19 09:17:59,630] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:17:59,630] INFO shop.views: Поиск с параметрами: search=shirt, filters={'min_price': 10, 'max_price': 100, 'category': 2}, page=1, page_size=20
+[2025-04-19 09:17:59,631] INFO shop.utils.cache: Сформирован ключ кеша: products_search_7bd415631b68454ad8d99e0a7fd91675
+[2025-04-19 09:17:59,631] INFO shop.utils.cache: Кеш для ключа products_search_7bd415631b68454ad8d99e0a7fd91675 не найден. Получение данных с использованием функции get_response_data.
+[2025-04-19 09:17:59,653] INFO shop.views: Найдено 0 продуктов по заданным фильтрам
+[2025-04-19 09:17:59,653] INFO shop.utils.cache: Данные успешно сохранены в кеш с ключом products_search_7bd415631b68454ad8d99e0a7fd91675.
+[2025-04-19 09:17:59,658] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:17:59,659] INFO shop.views: Поиск с параметрами: search=book, filters={'min_price': 0, 'max_price': 50, 'category': 5}, page=1, page_size=5
+[2025-04-19 09:17:59,659] INFO shop.utils.cache: Сформирован ключ кеша: products_search_c1ca3b8dcd5d21ce1ea6666a1a0af7a9
+[2025-04-19 09:17:59,659] INFO shop.utils.cache: Кеш для ключа products_search_c1ca3b8dcd5d21ce1ea6666a1a0af7a9 не найден. Получение данных с использованием функции get_response_data.
+[2025-04-19 09:17:59,678] INFO shop.views: Найдено 0 продуктов по заданным фильтрам
+[2025-04-19 09:17:59,679] INFO shop.utils.cache: Данные успешно сохранены в кеш с ключом products_search_c1ca3b8dcd5d21ce1ea6666a1a0af7a9.
+[2025-04-19 09:17:59,683] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:17:59,684] INFO shop.views: Поиск с параметрами: search=, filters={'min_price': 0, 'max_price': 0}, page=1, page_size=10
+[2025-04-19 09:17:59,684] INFO shop.utils.cache: Сформирован ключ кеша: products_search_3c39a522a23da0d4cc15d7d77b551645
+[2025-04-19 09:17:59,684] INFO shop.utils.cache: Кеш для ключа products_search_3c39a522a23da0d4cc15d7d77b551645 не найден. Получение данных с использованием функции get_response_data.
+[2025-04-19 09:17:59,704] INFO shop.views: Найдено 0 продуктов по заданным фильтрам
+[2025-04-19 09:17:59,705] INFO shop.utils.cache: Данные успешно сохранены в кеш с ключом products_search_3c39a522a23da0d4cc15d7d77b551645.
+[2025-04-19 09:17:59,709] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:17:59,710] INFO shop.views: Поиск с параметрами: search=gaming, filters={'min_price': 200, 'max_price': 1500, 'category': 87}, page=1, page_size=15
+[2025-04-19 09:17:59,710] INFO shop.utils.cache: Сформирован ключ кеша: products_search_84f733e7a29c9601f995d8487c8a7ae5
+[2025-04-19 09:17:59,710] INFO shop.utils.cache: Кеш для ключа products_search_84f733e7a29c9601f995d8487c8a7ae5 не найден. Получение данных с использованием функции get_response_data.
+[2025-04-19 09:17:59,735] INFO shop.views: Найдено 0 продуктов по заданным фильтрам
+[2025-04-19 09:17:59,736] INFO shop.utils.cache: Данные успешно сохранены в кеш с ключом products_search_84f733e7a29c9601f995d8487c8a7ae5.
+[2025-04-19 09:17:59,742] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:17:59,743] INFO shop.views: Поиск с параметрами: search=headphones, filters={'min_price': 50, 'max_price': 500, 'category': 2}, page=1, page_size=12
+[2025-04-19 09:17:59,743] INFO shop.utils.cache: Сформирован ключ кеша: products_search_a8a364d33e2c18ef6be0a7c7ccc521a7
+[2025-04-19 09:17:59,743] INFO shop.utils.cache: Кеш для ключа products_search_a8a364d33e2c18ef6be0a7c7ccc521a7 не найден. Получение данных с использованием функции get_response_data.
+[2025-04-19 09:17:59,771] INFO shop.views: Найдено 0 продуктов по заданным фильтрам
+[2025-04-19 09:17:59,772] INFO shop.utils.cache: Данные успешно сохранены в кеш с ключом products_search_a8a364d33e2c18ef6be0a7c7ccc521a7.
+[2025-04-19 09:17:59,777] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:17:59,777] INFO shop.views: Поиск с параметрами: search=shoes, filters={'min_price': 30, 'max_price': 300, 'category': 6}, page=1, page_size=10
+[2025-04-19 09:17:59,777] INFO shop.utils.cache: Сформирован ключ кеша: products_search_d686a04b5d37198db860d5dadcef5c29
+[2025-04-19 09:17:59,777] INFO shop.utils.cache: Кеш для ключа products_search_d686a04b5d37198db860d5dadcef5c29 не найден. Получение данных с использованием функции get_response_data.
+[2025-04-19 09:17:59,797] INFO shop.views: Найдено 0 продуктов по заданным фильтрам
+[2025-04-19 09:17:59,798] INFO shop.utils.cache: Данные успешно сохранены в кеш с ключом products_search_d686a04b5d37198db860d5dadcef5c29.
+[2025-04-19 09:17:59,802] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:17:59,803] INFO shop.views: Поиск с параметрами: search=t-shirt, filters={'min_price': 5, 'max_price': 50, 'category': 4}, page=1, page_size=25
+[2025-04-19 09:17:59,803] INFO shop.utils.cache: Сформирован ключ кеша: products_search_270738e61e55dcc7e51a97ee92b61f4c
+[2025-04-19 09:17:59,803] INFO shop.utils.cache: Кеш для ключа products_search_270738e61e55dcc7e51a97ee92b61f4c не найден. Получение данных с использованием функции get_response_data.
+[2025-04-19 09:17:59,822] INFO shop.views: Найдено 0 продуктов по заданным фильтрам
+[2025-04-19 09:17:59,823] INFO shop.utils.cache: Данные успешно сохранены в кеш с ключом products_search_270738e61e55dcc7e51a97ee92b61f4c.
+[2025-04-19 09:17:59,827] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:17:59,828] INFO shop.views: Поиск с параметрами: search=chair, filters={'min_price': 100, 'max_price': 1000, 'category': 3}, page=1, page_size=10
+[2025-04-19 09:17:59,828] INFO shop.utils.cache: Сформирован ключ кеша: products_search_ea2bc50c4d2c2e0ecccc74f73ac3cdaf
+[2025-04-19 09:17:59,828] INFO shop.utils.cache: Кеш для ключа products_search_ea2bc50c4d2c2e0ecccc74f73ac3cdaf не найден. Получение данных с использованием функции get_response_data.
+[2025-04-19 09:17:59,847] INFO shop.views: Найдено 0 продуктов по заданным фильтрам
+[2025-04-19 09:17:59,848] INFO shop.utils.cache: Данные успешно сохранены в кеш с ключом products_search_ea2bc50c4d2c2e0ecccc74f73ac3cdaf.
+[2025-04-19 09:17:59,853] INFO shop.views: Запрос на поиск продуктов с фильтрами
+[2025-04-19 09:17:59,853] INFO shop.views: Поиск с параметрами: search=, filters={'min_price': 0, 'max_price': 10000}, page=1, page_size=100
+[2025-04-19 09:17:59,853] INFO shop.utils.cache: Сформирован ключ кеша: products_search_09b47c3b82178ced1401b94cf18b444e
+[2025-04-19 09:17:59,853] INFO shop.utils.cache: Кеш для ключа products_search_09b47c3b82178ced1401b94cf18b444e не найден. Получение данных с использованием функции get_response_data.
+[2025-04-19 09:17:59,897] INFO shop.views: Найдено 20 продуктов по заданным фильтрам
+[2025-04-19 09:17:59,898] INFO shop.utils.cache: Данные успешно сохранены в кеш с ключом products_search_09b47c3b82178ced1401b94cf18b444e.
+[2025-04-19 09:18:00,072] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:18:00,234] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:18:00,245] WARNING django.request: Unauthorized: /api/token/refresh/
+[2025-04-19 09:18:00,249] WARNING django.request: Bad Request: /api/token/refresh/
+[2025-04-19 09:18:00,414] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:18:00,572] INFO user.views: Успешный вход: test@example.com
+[2025-04-19 09:18:00,578] WARNING django.request: Unauthorized: /api/token/verify/
+[2025-04-19 09:18:00,747] INFO user.views: Получение списка пользователей
+[2025-04-19 09:18:00,916] WARNING user.views: Удаление пользователя с ID: 40
+[2025-04-19 09:18:01,089] INFO user.views: Получение пользователя по ID: 41
+[2025-04-19 09:18:01,093] INFO user.views: Попытка входа: 
+[2025-04-19 09:18:01,094] WARNING django.request: Bad Request: /api/auth/login/
+[2025-04-19 09:18:01,095] INFO user.views: Попытка входа: test@example.com
+[2025-04-19 09:18:01,095] WARNING django.request: Bad Request: /api/auth/login/
+[2025-04-19 09:18:01,096] INFO user.views: Попытка входа: 
+[2025-04-19 09:18:01,096] WARNING django.request: Bad Request: /api/auth/login/
